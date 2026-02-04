@@ -95,7 +95,7 @@
         <h1 id="cidade">São Paulo</h1>
         <div class="temp" id="temperatura">--°C</div>
         <p id="sensacao" style="font-size: 0.9rem; opacity: 0.8; margin-top: -10px;">Sensação: --°C</p>
-        <p id="humidade" style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Humidade: --%</p>
+        <p id="umidade" style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Umidade: --%</p>
         <img id="icone-clima" src="" alt="" style="width: 80px; height: 80px;"> 
         <p class="status" id="descricao">Clique para iniciar</p>
         <button onclick="atualizarVibe()">Minha Localização</button>
@@ -109,7 +109,7 @@
             document.getElementById('cidade').innerText = dados.name;
             document.getElementById('temperatura').innerText = `${Math.round(dados.main.temp)}°C`;
             document.getElementById('sensacao').innerText = `Sensação: ${Math.round(dados.main.feels_like)}°C`;
-            document.getElementById('humidade').innerText = `Humidade: ${dados.main.humidity}%`;
+            document.getElementById('umidade').innerText = `Umidade: ${dados.main.humidity}%`;
             document.getElementById('descricao').innerText = dados.weather[0].description;
 
             const iconCode = dados.weather[0].icon;
@@ -176,4 +176,5 @@
     </script>
 </body>
 </html>
+
 
