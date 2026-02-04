@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             margin: 0;
-            transition: background 0.5s ease; /* Para as cores mudarem suavemente */
+            transition: background 0.5s ease; 
         }
 
         .card {
@@ -103,7 +103,7 @@
     <script>
         const API_KEY = "39e890d91dcd960a6f555c7b07b2636c";
 
-        // FUNÇÃO MESTRE: Responsável apenas por desenhar na tela
+        
         function atualizarInterface(dados) {
             document.getElementById('cidade').innerText = dados.name;
             document.getElementById('temperatura').innerText = `${Math.round(dados.main.temp)}°C`;
@@ -126,7 +126,7 @@
             }
         }
 
-        // FUNÇÃO 1: Busca por GPS
+ 
         async function atualizarVibe() {
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(async (posicao) => {
@@ -145,7 +145,6 @@
             }
         }
 
-        // FUNÇÃO 2: Busca por Digitação
         async function buscarPorCidade() {
             const cidadeDigitada = document.getElementById('campo-busca').value;
             
