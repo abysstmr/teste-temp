@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             margin: 0;
-            transition: background 0.5s ease; 
+            transition: background 0.5s ease; /* Para as cores mudarem suavemente */
         }
 
         .card {
@@ -95,6 +95,7 @@
         <h1 id="cidade">São Paulo</h1>
         <div class="temp" id="temperatura">--°C</div>
         <p id="sensacao" style="font-size: 0.9rem; opacity: 0.8; margin-top: -10px;">Sensação: --°C</p>
+        <p id="humidade" style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Humidade: --%</p>
         <img id="icone-clima" src="" alt="" style="width: 80px; height: 80px;"> 
         <p class="status" id="descricao">Clique para iniciar</p>
         <button onclick="atualizarVibe()">Minha Localização</button>
@@ -103,11 +104,12 @@
     <script>
         const API_KEY = "39e890d91dcd960a6f555c7b07b2636c";
 
-        
+        // FUNÇÃO MESTRE: Responsável apenas por desenhar na tela
         function atualizarInterface(dados) {
             document.getElementById('cidade').innerText = dados.name;
             document.getElementById('temperatura').innerText = `${Math.round(dados.main.temp)}°C`;
             document.getElementById('sensacao').innerText = `Sensação: ${Math.round(dados.main.feels_like)}°C`;
+            document.getElementById('humidade').innerText = `Humidade: ${dados.main.humidity}%`;
             document.getElementById('descricao').innerText = dados.weather[0].description;
 
             const iconCode = dados.weather[0].icon;
@@ -126,7 +128,7 @@
             }
         }
 
- 
+        // FUNÇÃO 1: Busca por GPS
         async function atualizarVibe() {
             if ("geolocation" in navigator) {
                 navigator.geolocation.getCurrentPosition(async (posicao) => {
@@ -145,6 +147,7 @@
             }
         }
 
+        // FUNÇÃO 2: Busca por Digitação
         async function buscarPorCidade() {
             const cidadeDigitada = document.getElementById('campo-busca').value;
             
